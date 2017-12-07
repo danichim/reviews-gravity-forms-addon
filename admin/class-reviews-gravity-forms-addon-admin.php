@@ -100,4 +100,21 @@ class Reviews_Gravity_Forms_Addon_Admin {
 
 	}
 
+	public function reviews_admin_menu () {
+		add_menu_page(
+            'Reviews Gravity Settings',
+            'Reviews Gravity',
+            'administrator',
+            'reviews-gravity-addon',
+            array(
+                $this,
+                'content'
+            ),
+            ''
+        );
+	}
+	public function content () {
+		echo "test"
+	}
+
 }
