@@ -100,21 +100,116 @@ class Reviews_Gravity_Forms_Addon_Admin {
 
 	}
 
-	public function reviews_admin_menu () {
-		add_menu_page(
-            'Reviews Gravity Settings',
+	public function rgfa_reviews_admin_menu () {
+		add_submenu_page(
+			'options-general.php',
+			'Reviews Gravity',
             'Reviews Gravity',
-            'administrator',
+            'manage_options',
             'reviews-gravity-addon',
-            array(
+            array (
                 $this,
-                'content'
+                'rgfa_admin_settings_page'
             ),
             ''
-        );
+		);
+		
+		add_action(
+			'admin_init',
+			array(
+				$this,
+				'rgfa_register_settings'
+			)
+		);
 	}
-	public function content () {
-		echo "test"
+
+	public function rgfa_register_settings() {
+		$this->register_api_section();
+	}
+
+	public function register_api_section () {
+		// register group
+		register_setting( 
+			'rgfa-settings-group',
+			'api_key'
+		);
+
+		// section of settings :)
+		add_settings_section(
+			'rgfa-gravity-api-options',
+			'Gravity API Details',
+			array (
+				$this,
+				'rgfa_public_key_section'
+			),
+			'options-general.php'
+		);
+
+		// add fields
+		add_settings_field( 
+			'api-key',
+			'Public Key',
+			array (
+				$this,
+				'rgfa_public_key_field'
+			),
+			'options-general.php',
+			'rgfa-gravity-api-options'
+		);
+		
+		//Private Key
+		register_setting( 
+			'rgfa-settings-group',
+			'private_key'
+		);
+
+		add_settings_field( 
+			'private-api-key',
+			'Private Key',
+			array (
+				$this,
+				'rgfa_private_key_field'
+			),
+			'options-general.php',
+			'rgfa-gravity-api-options'
+		);
+
+
+		// Endpoint
+		register_setting( 
+			'rgfa-settings-group',
+			'api_endpoint'
+		);
+
+		// add fields
+		add_settings_field( 
+			'api-endpoint',
+			'Endpoint',
+			array (
+				$this,
+				'rgfa_api_endpoint_field'
+			),
+			'options-general.php',
+			'rgfa-gravity-api-options'
+		);
+	}
+
+	public function rgfa_admin_settings_page () {
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/reviews-gravity-forms-addon-admin-display.php' );
+	}
+
+	public function rgfa_public_key_section () { echo ''; }
+
+	public function rgfa_public_key_field () {
+		echo '<input type="text" name="api_key" value="' . esc_attr(get_option( 'api_key' )) . '" placeholder="Enter Public Key"/>';
+	}
+
+	public function rgfa_private_key_field () {
+		echo '<input type="text" name="private_key" value="' . esc_attr(get_option( 'private_key' )) . '" placeholder="Enter Private Key"/>';
+	}
+
+	public function rgfa_api_endpoint_field () {
+		echo '<input type="text" name="api_endpoint" value="' . esc_attr(get_option( 'api_endpoint' )) . '" placeholder="Enter API Endpoint"/>';
 	}
 
 }

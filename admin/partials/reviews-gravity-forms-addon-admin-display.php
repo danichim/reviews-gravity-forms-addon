@@ -13,4 +13,16 @@
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<h1>
+    Review Gravity Settings
+</h1>
+
+<php settings_errors(); ?>
+
+<form method="POST" action="options.php">
+    <?php 
+        settings_fields( 'rgfa-settings-group' );
+        do_settings_sections( 'options-general.php' );
+        submit_button();
+    ?>
+</form>
