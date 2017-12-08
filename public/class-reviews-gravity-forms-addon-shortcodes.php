@@ -27,9 +27,10 @@ class Reviews_Gravity_Forms_Addon_Shortcodes {
 			'form_id' => 1,
 			'type' => 'page',
 			'nav' => 'true',
-			'per_page' => 2
+			'per_page' => 2,
+			'feedback' => '#'
 		);
-		$a = array_replace($a, $atts);
+		$a = shortcode_atts( $a, $atts );
 
 		switch ($a['type']) {
 			case 'page':

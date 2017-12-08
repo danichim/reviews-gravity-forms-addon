@@ -28,9 +28,11 @@
         <!-- /Rating container -->
 
         <div class="feedback">
+        <form method="GET" action="<?php echo $atts['feedback']; ?>">
         <p class="company-name">PeachTrees Intl.</p>
-        <button class="leave-feedback">Leave us feedback</button>
+            <button type="submit" class="leave-feedback" >Leave us feedback</button>
         </div>
+        </form>
     </div>
 
     <div class="testimonials">

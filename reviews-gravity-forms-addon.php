@@ -74,7 +74,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-reviews-gravity-forms-addo
  * @since    1.0.0
  */
 function run_reviews_gravity_forms_addon() {
-
+	if ( ! class_exists( 'GFAPI' ) ) {
+		die('Please install Gravity Forms first!');
+	}
 	$plugin = new Reviews_Gravity_Forms_Addon();
 	$plugin->run();
 

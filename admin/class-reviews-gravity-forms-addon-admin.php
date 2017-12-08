@@ -109,22 +109,35 @@ class Reviews_Gravity_Forms_Addon_Admin {
             'reviews-gravity-addon',
             array (
                 $this,
-                'rgfa_admin_settings_page'
+                'rgfa_json_download'
             ),
             ''
 		);
 		
-		add_action(
-			'admin_init',
-			array(
-				$this,
-				'rgfa_register_settings'
-			)
-		);
+		// add_action(
+		// 	'admin_init',
+		// 	array(
+		// 		$this,
+		// 		'rgfa_register_settings'
+		// 	)
+		// );
 	}
 
 	public function rgfa_register_settings() {
-		$this->register_api_section();
+		$this->rgfa_json_download();
+		// $this->register_api_section();
+	}
+
+	public function rgfa_json_download () {
+		$output = '<h2>Review Forms Addon Details</h2>';
+		$output .= '
+		<form method="GET">
+			<input type="hidden" name="start_download" /> 
+			<button type="submit">Download Form Template</button>
+		</form>
+		';
+
+		echo $output;
 	}
 
 	public function register_api_section () {
