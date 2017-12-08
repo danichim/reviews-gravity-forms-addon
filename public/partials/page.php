@@ -15,6 +15,7 @@
 ?>
 
 <div class="testimonials-list">
+
     <div class="rating-system">
         <h2 class="rating-title">Average Rating / <?php echo $data['total']; ?> Total Testimonials</h2>
         <div class="rating-container clearfix">
@@ -60,7 +61,7 @@
                 </div>
 
                 <div class="testimonial-container">
-                    <?php 
+                    <?php
                         echo $entry['message'];
                     ?>
                 </div>
