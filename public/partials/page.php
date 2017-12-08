@@ -17,10 +17,14 @@
 <div class="testimonials-list">
 
     <div class="rating-system">
-        <h2 class="rating-title">Average Rating / <?php echo $data['total']; ?> Total Testimonials</h2>
+        <h2 class="rating-title">
+            <?php _e('Average Rating', 'reviews-gravity-forms-addon'); ?> / <?php echo $data['total']; ?> <?php _e('Total Testimonials', 'reviews-gravity-forms-addon'); ?>
+        </h2>
         <div class="rating-container clearfix">
             <h2 class="rating-average"><?php echo number_format($data['star_avg'],1); ?>
-                <span class="rating-average-maximum">Out of 5 stars</span>
+                <span class="rating-average-maximum">
+                    <?php _e('out of 5 stars', 'reviews-gravity-forms-addon'); ?>
+                </span>
             </h2>
             <div class="star-ratings-sprite">
                 <span style="width:<?php echo (number_format($data['star_avg'],1) * 20); ?>%" class="star-ratings-sprite-rating"></span>
@@ -30,8 +34,10 @@
 
         <div class="feedback">
         <form method="GET" action="<?php echo $atts['feedback']; ?>">
-        <p class="company-name">PeachTrees Intl.</p>
-            <button type="submit" class="leave-feedback" >Leave us feedback</button>
+        <p class="company-name"></p>
+            <button type="submit" class="leave-feedback">
+                <?php _e('Leave us feedback', 'reviews-gravity-forms-addon'); ?>
+            </button>
         </div>
         </form>
     </div>
@@ -44,7 +50,10 @@
                 <div class="star-ratings-sprite star-ratings-sprite-small">
                     <span style="width:<?php echo ($entry['stars'] * 20); ?>%" class="star-ratings-sprite-rating"></span>
                 </div>
-                <span class="rating-value"><?php echo $entry['stars']; ?> out of 5 stars</span>
+                <span class="rating-value">
+                    <?php echo $entry['stars']; ?>
+                    <?php _e('out of 5 stars', 'reviews-gravity-forms-addon'); ?>
+                </span>
 
                 <div class="clearfix">
                     <a href="#" class="testimonial-author">
@@ -88,4 +97,4 @@
         ?>
         </ol>
     </nav>
-    <?php } ?>
+<?php } ?>

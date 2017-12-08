@@ -1,9 +1,11 @@
 <div class="testimonials-list">
 	<div class="rating-system">
-        <h2 class="rating-title">Average Rating / <?php echo $data['total']; ?> Total Testimonials</h2>
+        <h2 class="rating-title">
+            <?php _e('Average Rating', 'reviews-gravity-forms-addon'); ?> / <?php echo $data['total']; ?> <?php _e('Total Testimonials', 'reviews-gravity-forms-addon'); ?>
+        </h2>
         <div class="rating-container clearfix">
             <h2 class="rating-average"><?php echo number_format($data['star_avg'],1); ?>
-                <span class="rating-average-maximum">Out of 5 stars</span>
+                <?php _e('out of 5 stars', 'reviews-gravity-forms-addon'); ?>
             </h2>
             <div class="star-ratings-sprite">
                 <span style="width:<?php echo (number_format($data['star_avg'],1) * 20); ?>%" class="star-ratings-sprite-rating"></span>
@@ -12,8 +14,10 @@
         <!-- /Rating container -->
 		<div class="feedback">
 			<form method="GET" action="<?php echo $atts['feedback']; ?>">
-			<p class="company-name">PeachTrees Intl.</p>
-				<button type="submit" class="leave-feedback" >Leave us feedback</button>
+			<p class="company-name"></p>
+				<button type="submit" class="leave-feedback" >
+                    <?php _e('Leave us feedback', 'reviews-gravity-forms-addon'); ?>
+                </button>
 			</form>
 		</div>
     </div>
