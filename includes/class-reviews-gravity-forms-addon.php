@@ -177,8 +177,9 @@ class Reviews_Gravity_Forms_Addon {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'rgfa_reviews_admin_menu' );
+		
+		// Disabled admin menu for now since we don't use it.
+		// $this->loader->add_action( 'admin_menu', $plugin_admin, 'rgfa_reviews_admin_menu' );
 
 	}
 

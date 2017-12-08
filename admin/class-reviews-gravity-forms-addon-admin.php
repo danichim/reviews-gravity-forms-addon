@@ -18,7 +18,7 @@
  *
  * @package    Reviews_Gravity_Forms_Addon
  * @subpackage Reviews_Gravity_Forms_Addon/admin
- * @author     Dan <dan.ichim@assist.ro> & Robert <robert@schiriac.com>
+ * @author     Dan & Robert <dan.ichim@assist.ro>
  */
 class Reviews_Gravity_Forms_Addon_Admin {
 
@@ -109,40 +109,27 @@ class Reviews_Gravity_Forms_Addon_Admin {
             'reviews-gravity-addon',
             array (
                 $this,
-                'rgfa_json_download'
+                'rgfa_admin_settings_page'
             ),
             ''
 		);
 		
-		// add_action(
-		// 	'admin_init',
-		// 	array(
-		// 		$this,
-		// 		'rgfa_register_settings'
-		// 	)
-		// );
+		add_action(
+			'admin_init',
+			array(
+				$this,
+				'rgfa_register_settings'
+			)
+		);
 	}
 
 	public function rgfa_register_settings() {
-		$this->rgfa_json_download();
-		// $this->register_api_section();
-	}
-
-	public function rgfa_json_download () {
-		$output = '<h2>Review Forms Addon Details</h2>';
-		$output .= '
-		<form method="GET">
-			<input type="hidden" name="start_download" />
-			<button type="submit">Download Form Template</button>
-		</form>
-		';
-
-		echo $output;
+		$this->register_api_section();
 	}
 
 	public function register_api_section () {
 		// register group
-		register_setting(
+		register_setting( 
 			'rgfa-settings-group',
 			'api_key'
 		);
@@ -159,7 +146,7 @@ class Reviews_Gravity_Forms_Addon_Admin {
 		);
 
 		// add fields
-		add_settings_field(
+		add_settings_field( 
 			'api-key',
 			'Public Key',
 			array (
@@ -171,12 +158,12 @@ class Reviews_Gravity_Forms_Addon_Admin {
 		);
 		
 		//Private Key
-		register_setting(
+		register_setting( 
 			'rgfa-settings-group',
 			'private_key'
 		);
 
-		add_settings_field(
+		add_settings_field( 
 			'private-api-key',
 			'Private Key',
 			array (
