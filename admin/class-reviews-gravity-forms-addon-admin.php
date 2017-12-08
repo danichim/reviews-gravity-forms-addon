@@ -18,7 +18,7 @@
  *
  * @package    Reviews_Gravity_Forms_Addon
  * @subpackage Reviews_Gravity_Forms_Addon/admin
- * @author     Dan & Robert <dan.ichim@assist.ro>
+ * @author     Dan <dan.ichim@assist.ro> & Robert <robert@schiriac.com>
  */
 class Reviews_Gravity_Forms_Addon_Admin {
 

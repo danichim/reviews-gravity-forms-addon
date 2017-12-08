@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Reviews_Gravity_Forms_Addon
  * @subpackage Reviews_Gravity_Forms_Addon/includes
- * @author     Dan & Robert <dan.ichim@assist.ro>
+ * @author     Dan <dan.ichim@assist.ro> & Robert <robert@schiriac.com>
  */
 class Reviews_Gravity_Forms_Addon {
 
@@ -38,6 +38,10 @@ class Reviews_Gravity_Forms_Addon {
 	 * @var      Reviews_Gravity_Forms_Addon_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
+
+	protected $shortcodes;
+
+	protected $core;
 
 	/**
 	 * The unique identifier of this plugin.
@@ -78,6 +82,7 @@ class Reviews_Gravity_Forms_Addon {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->load_core();
 
 	}
 
@@ -123,7 +128,23 @@ class Reviews_Gravity_Forms_Addon {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-reviews-gravity-forms-addon-public.php';
 
 		$this->loader = new Reviews_Gravity_Forms_Addon_Loader();
+		
+	}
 
+	private function load_core () {
+		/**
+		 * This class is responsible for all ShortCodes registered.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-reviews-gravity-forms-addon-shortcodes.php';
+		
+		/**
+		 * This class holds all core functionality (interaction with db / calls / data )
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-reviews-gravity-forms-addon-core.php';
+
+		$this->core = new Reviews_Gravity_Forms_Addon_Core();
+
+		$this->shortcodes  = new Reviews_Gravity_Forms_Addon_Shortcodes($this->core);
 	}
 
 	/**

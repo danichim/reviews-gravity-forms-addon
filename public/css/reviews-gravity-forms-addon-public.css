@@ -1,9 +1,68 @@
+.pagination {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pagination li {
+  display: inline-block;
+}
+.pagination a {
+  padding: 1em;
+  display: block;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+}
+.pagination li.selected a {
+  background: #eee;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+
+
+.star-ratings-sprite {
+  background: url("../images/star.png") repeat-x;
+  font-size: 0;
+  height: 28px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  margin: 0 auto;
+}
+
+.star-ratings-sprite-small {
+  margin: 0px;
+  display:inline-table;
+}
+.star-ratings-sprite-rating {
+  background: url("../images/star.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display: block;
+}
+
+
 /**
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
 
-@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
+@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
 /****** Style Star Rating Widget *****/
 
 .rating {
@@ -130,9 +189,9 @@
 }
 
 .rating-value {
-  background-color: #eeeeee;
+  background-color: #ffffff;
   position: relative;
-  top: 6px;
+  top: -3px;
   left: 5px;
 }
 

@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    Reviews_Gravity_Forms_Addon
  * @subpackage Reviews_Gravity_Forms_Addon/includes
- * @author     Dan & Robert <dan.ichim@assist.ro>
+ * @author     Dan <dan.ichim@assist.ro> & Robert <robert@schiriac.com>
  */
 class Reviews_Gravity_Forms_Addon_i18n {
 
