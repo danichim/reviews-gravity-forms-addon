@@ -24,7 +24,7 @@ class Reviews_Gravity_Forms_Addon_Shortcodes {
 	public function gravity_reviews_shortcode ( $atts, $context = null ) {
 		ob_start();
 		$a = array(
-			'form_id' => 1,
+			'form_id' => '1',
 			'type' => 'page',
 			'nav' => 'true',
 			'per_page' => 2,

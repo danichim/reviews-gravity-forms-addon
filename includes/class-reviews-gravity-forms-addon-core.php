@@ -30,38 +30,45 @@ class Reviews_Gravity_Forms_Addon_Core {
 
 	public function get_page_data ( $atts ) {
 		$final_data = null;
+		$data = [];
 
-		$entries = GFAPI::get_entries( $atts['form_id'] );
-		if(count($entries)){
-			$star_sum = array_reduce($entries, function($carry, $entry){ 
-				$carry += $entry[3];
-				return $carry;
-			}, 0);
-			
-			$total = count($entries);
-
-			$star_avg = (intval($star_sum) / intval($total));
-
-			$entries_array = array_map(array(
-				$this,
-				'format_entry'
-			), $entries);
-			
-			if($atts['nav'] == 'true') {
-				$chunks = array_chunk($entries_array, $atts['per_page']);
+		if (isset($atts['form_id'])) {
+			$entries = GFAPI::get_entries( $atts['form_id'] );
+			if (count($entries)) {
+				$star_sum = array_reduce($entries, function($carry, $entry){ 
+					$carry += $entry[3];
+					return $carry;
+				}, 0);
 				
-				$index = isset($_REQUEST['r_page']) ? intval($_REQUEST['r_page']) : 0;
+				$total = count($entries);
 
-				$final_data = $chunks[$index];
-			}else{
-				$final_data = $entries_array;
+				$star_avg = (intval($star_sum) / intval($total));
+
+				$entries_array = array_map(array(
+					$this,
+					'format_entry'
+				), $entries);
+				
+				if($atts['nav'] == 'true') {
+					$chunks = array_chunk($entries_array, $atts['per_page']);
+					
+					$index = isset($_REQUEST['r_page']) ? intval($_REQUEST['r_page']) : 0;
+
+					$final_data = $chunks[$index];
+				}else{
+					$final_data = $entries_array;
+				}
+			} else {
+				$final_data = [];
+				$total = 0;
+				$star_avg = 0;
 			}
-		}else{
+		} else {
 			$final_data = [];
 			$total = 0;
 			$star_avg = 0;
 		}
-
+	
 		$data = array(
 			"entries" => $final_data,
 			"total" => $total,
