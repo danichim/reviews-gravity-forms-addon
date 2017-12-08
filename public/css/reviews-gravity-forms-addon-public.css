@@ -270,9 +270,10 @@
   border-top: 10px solid #05c805;
   width: 25%;
   padding: 10px 0 0px 10px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 10px;
   right: 10px;
+  float: right;
   background: #fff;
 }
 
@@ -318,4 +319,9 @@
 
 #xxx .rating {
   z-index: 99;
+}
+
+#xxx .rating-container {
+  background-color: #fff;
+  width: 100px;
 }

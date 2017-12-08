@@ -31,16 +31,26 @@ class Reviews_Gravity_Forms_Addon_Shortcodes {
 			'feedback' => '#'
 		);
 		$a = shortcode_atts( $a, $atts );
-
+		$data = $this->core->get_page_data( $atts );
 		switch ($a['type']) {
 			case 'page':
 				return $this->render_full_page($a);
 				break;
+			case 'widget':
+				return $this->render_wiget_container($a);
+				break;
+
 			
 			default:
 				return '';
 				break;
 		}
+	}
+
+	public function render_wiget_container ( $atts ) {
+		$data = $this->core->get_page_data( $atts );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/widget.php');
+		return ob_get_clean();
 	}
 
 	public function render_full_page ( $atts ) {
