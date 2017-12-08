@@ -27,8 +27,13 @@ class Reviews_Gravity_Forms_Addon_Shortcodes {
 			'form_id' => '1',
 			'type' => 'page',
 			'nav' => 'true',
-			'per_page' => 2,
-			'feedback' => '#'
+			'per_page' => '2',
+			'feedback' => '#',
+			'star1' => '1',
+			'star2' => '1',
+			'star3' => '3',
+			'star4' => '4',
+			'star5' => '5'
 		);
 		$a = shortcode_atts( $a, $atts );
 		$data = $this->core->get_page_data( $atts );
