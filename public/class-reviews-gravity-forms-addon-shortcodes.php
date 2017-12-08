@@ -31,8 +31,6 @@ class Reviews_Gravity_Forms_Addon_Shortcodes {
 		);
 		$a = array_replace($a, $atts);
 
-		echo '<pre>'.var_export($a, true).'</pre>';
-
 		switch ($a['type']) {
 			case 'page':
 				return $this->render_full_page($a);
