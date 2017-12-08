@@ -132,7 +132,7 @@ class Reviews_Gravity_Forms_Addon_Admin {
 		$output = '<h2>Review Forms Addon Details</h2>';
 		$output .= '
 		<form method="GET">
-			<input type="hidden" name="start_download" /> 
+			<input type="hidden" name="start_download" />
 			<button type="submit">Download Form Template</button>
 		</form>
 		';
@@ -142,7 +142,7 @@ class Reviews_Gravity_Forms_Addon_Admin {
 
 	public function register_api_section () {
 		// register group
-		register_setting( 
+		register_setting(
 			'rgfa-settings-group',
 			'api_key'
 		);
@@ -159,7 +159,7 @@ class Reviews_Gravity_Forms_Addon_Admin {
 		);
 
 		// add fields
-		add_settings_field( 
+		add_settings_field(
 			'api-key',
 			'Public Key',
 			array (
@@ -171,12 +171,12 @@ class Reviews_Gravity_Forms_Addon_Admin {
 		);
 		
 		//Private Key
-		register_setting( 
+		register_setting(
 			'rgfa-settings-group',
 			'private_key'
 		);
 
-		add_settings_field( 
+		add_settings_field(
 			'private-api-key',
 			'Private Key',
 			array (

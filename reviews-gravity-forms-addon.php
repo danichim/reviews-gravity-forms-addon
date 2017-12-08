@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Reviews Gravity Forms Addon
  * Plugin URI:        https://github.com/danichim/reviews-gravity-forms-addon
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Use shortcode [gravity_reviews] attributes are form_id(number), type(page or widget), nav(true or false), per_page(number), feedback(link)
  * Version:           1.0.0
  * Author:            Dan & Robert
  * Author URI:        https://www.linkedin.com/in/schiriacrobert/
