@@ -36,7 +36,7 @@ class Reviews_Gravity_Forms_Addon_Core {
 			$entries = GFAPI::get_entries( $atts['form_id'] );
 			if (count($entries)) {
 				$star_sum = array_reduce($entries, function($carry, $entry){ 
-					$carry += $entry[3];
+					$carry += intval($entry[3]);
 					return $carry;
 				}, 0);
 				
@@ -48,9 +48,17 @@ class Reviews_Gravity_Forms_Addon_Core {
 					$this,
 					'format_entry'
 				), $entries);
+
+				if (isset($atts['star1']) && $atts['star1'] !== '1') {
+					for ($i=0; $i < count($entries_array); $i++) {
+						$key = array_search($entries_array[$i]['stars'], $atts);
+						$key = str_replace('star', '', $key);
+						$entries_array[$i]['stars'] = $key;
+					}
+				}
 				
 				if($atts['nav'] == 'true') {
-					$chunks = array_chunk($entries_array, $atts['per_page']);
+					$chunks = array_chunk($entries_array, intval($atts['per_page']));
 					
 					$index = isset($_REQUEST['r_page']) ? intval($_REQUEST['r_page']) : 0;
 
