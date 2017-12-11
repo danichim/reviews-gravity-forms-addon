@@ -87,7 +87,7 @@ This version fixes a security related bug.  Upgrade immediately.
 
 <code>
 // Default
-[gravity_reviews feedback="http://localhost/sample-page" type="page" nav="true"]
+[gravity_reviews feedback="http://localhost/sample-page" type="page" nav="true" per_page="2"]
 
 //Widget
 [gravity_reviews feedback="http://localhost/sample-page" type="widget" nav="true"]
