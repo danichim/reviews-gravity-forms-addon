@@ -83,25 +83,20 @@ Upgrade notices describe the reason a user should upgrade.  No more than 300 cha
 = 0.5 =
 This version fixes a security related bug.  Upgrade immediately.
 
-== Arbitrary section ==
+== Usage Shortcode ==
 
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+<code>
+// Default
+[gravity_reviews feedback="http://localhost/sample-page" type="page" nav="true"]
+
+//Widget
+[gravity_reviews feedback="http://localhost/sample-page" type="widget" nav="true"]
+
+// Multiple forms
+[gravity_reviews form_id="2" star1="valueOfStarFromForm1" star2="valueOfStarFromForm2" star3="valueOfStarFromForm3" star4="valueOfStarFromForm4" star5="valueOfStarFromForm5" feedback="http://localhost/sample-page"]
+</code>
 
 == A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
 
 Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
 Titles are optional, naturally.
